@@ -1,21 +1,14 @@
 ﻿@model BooksViewModel
     <br /><br />
-    <h3>Bookstore Selection</h3>
+    <h3 class="text-light">Bookstore Selection</h3>
 
 @foreach (Book b in Model.Books)
 {
-    <h3 class="text-center">@b.Title</h3>
-
-    <ul>
-        <li class="text-lg-left">Author: @b.Author</li>
-        <li class="text-lg-left">Publisher: @b.Publisher</li>
-        <li class="text-lg-left">Category: @b.Category</li>
-        <li class="text-lg-left">Classification: @b.Classification</li>
-        <li class="text-lg-left">Page Count: @b.PageCount</li>
-        <li class="text-lg-left">Price: @b.Price</li>
-        <li class="text-lg-left">ISBN: @b.Isbn</li>
-    </ul>
+    <partial name="BookSummary" model="b" />
 }
 
-<div page-turn="@Model.PageInfo" page-action="Index"></div>
+<div page-turn="@Model.PageInfo" page-action="Index"
+     page-class="btn" page-class-normal="bg-light"
+     page-class-selected="btn-primary" class="btn-group pull-right m-1" 
+     page-class-enabled="true"></div>
 

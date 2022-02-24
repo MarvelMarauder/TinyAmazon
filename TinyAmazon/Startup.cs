@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +28,12 @@ namespace TinyAmazon
         {
             services.AddControllersWithViews();
 
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession();
+
             services.AddDbContext<BookstoreContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:BookDBConnection"]);
@@ -44,14 +51,31 @@ namespace TinyAmazon
             }
     
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    "categorypage", 
+                    "{bookCategory}/Page{pageNum}", 
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                    "paging", 
+                    "Page{pageNum}", 
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                    "category", 
+                    "{bookCategory}", 
+                    new { Controller = "Home", action = "Index", pageNum=1 });
+
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }

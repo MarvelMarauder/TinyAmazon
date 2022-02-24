@@ -27,6 +27,10 @@ namespace TinyAmazon.Infrastructure
         //different than view context
         public PageInfo PageTurn { get; set; }
         public string PageAction { get; set; }
+        public string PageClass { get; set; }
+        public bool PageClassEnabled { get; set; }
+        public string PageClassNormal { get; set; }
+        public string PageClassSelected { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -38,8 +42,16 @@ namespace TinyAmazon.Infrastructure
             {
                 TagBuilder tb = new TagBuilder("a");
 
-                tb.Attributes["class"] = "btn btn-primary btn-outline-dark";
                 tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                if (PageClassEnabled)
+                {
+                    tb.AddCssClass(PageClass);
+                    tb.AddCssClass(i == PageTurn.CurrentPage ? PageClassSelected : PageClassNormal);
+                }
+                tb.InnerHtml.Append(i.ToString());
+
+                final.InnerHtml.AppendHtml(tb);
+
                 tb.InnerHtml.Append(i.ToString());
 
                 final.InnerHtml.AppendHtml(tb);
