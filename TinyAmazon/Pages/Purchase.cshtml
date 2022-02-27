@@ -3,33 +3,26 @@
 @{
 }
 
-<h2>Your Little Book Basket</h2>
+<h2>Your Basket</h2>
 
-<table>
+<table class="table table-bordered table-striped">
+
     <thead>
         <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Publisher</th>
-            <th>ISBN</th>
-            <th>Classification</th>
-            <th>Category</th>
-            <th>PageCount</th>
-            <th>Price</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>Subtotal</th>
         </tr>
     </thead>
     <tbody>
-        @foreach(var i in Model.basket.Items)
+        @foreach (var i in Model.basket.Items)
         {
             <tr>
                 <td>@i.Book.Title</td>
-                <td>@i.Book.Author</td>
-                <td>@i.Book.Publisher</td>
-                <td>@i.Book.Isbn</td>
-                <td>@i.Book.Classification</td>
-                <td>@i.Book.Category</td>
-                <td>@i.Book.PageCount</td>
+                <td>@i.Quantity</td>
                 <td>@i.Book.Price</td>
+                <td>@(i.Quantity*i.Book.Price)</td>
             </tr>
         }
     </tbody>
@@ -43,5 +36,5 @@
 </table>
 
 <div>
-    <a class="btn btn-primary" href="@Model.ReturnUrl">Keep Shopping</a>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
 </div>

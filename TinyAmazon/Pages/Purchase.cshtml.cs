@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TinyAmazon.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TinyAmazon.Models;
@@ -12,7 +13,7 @@ namespace TinyAmazon.Pages
     {
         private IBookstoreRepository repo { get; set; }
 
-        public PurchaseModel (IBookstoreRepository temp)
+        public PurchaseModel(IBookstoreRepository temp)
         {
             repo = temp;
         }

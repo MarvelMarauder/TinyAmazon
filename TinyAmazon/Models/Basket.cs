@@ -31,7 +31,12 @@ namespace TinyAmazon.Models
 
         public double CalculateTotal()
         {
-            double sum = Items.Sum(x => x.Quantity = x.Book.Price);
+            double sum = 0.0;
+            foreach(var i in Items)
+            {
+                sum += i.Book.Price;
+            }
+           
 
             return sum;
         }
