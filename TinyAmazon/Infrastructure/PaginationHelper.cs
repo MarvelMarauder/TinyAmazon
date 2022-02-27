@@ -52,9 +52,6 @@ namespace TinyAmazon.Infrastructure
 
                 final.InnerHtml.AppendHtml(tb);
 
-                tb.InnerHtml.Append(i.ToString());
-
-                final.InnerHtml.AppendHtml(tb);
             }
 
             output.Content.AppendHtml(final.InnerHtml);
