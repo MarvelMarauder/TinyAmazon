@@ -21,9 +21,9 @@ namespace TinyAmazon.Pages
         public Basket basket { get; set; }
         public string ReturnUrl { get; set; }
 
-        public void OnGet()
+        public void OnGet(string returnUrl)
         {
-            ReturnUrl = ReturnUrl ?? "/";
+            ReturnUrl = returnUrl ?? "/";
             basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
         }
 
