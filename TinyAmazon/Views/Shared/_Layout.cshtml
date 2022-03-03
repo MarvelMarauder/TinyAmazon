@@ -6,8 +6,19 @@
     <title>@ViewData["Title"] - TinyAmazon</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/all.min.css" rel="stylesheet" />
 </head>
 <body class="bg-dark">
+    <div class="bg-dark text-white p-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand">Tiny Amazon</div>
+                <div class="col-6 text-right">
+                    <vc:cart-summary />
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <header class="text-uppercase text-light">

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace TinyAmazon.Models
     {
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
 
-        public void AddItem(Book bo, int qty)
+        public virtual void AddItem(Book bo, int qty)
         {
             BasketLineItem line = Items
                 .Where(b => b.Book.BookId == bo.BookId)
@@ -29,22 +30,33 @@ namespace TinyAmazon.Models
             }
         }
 
+        public virtual void RemoveItem(Book bo)
+        {
+            Items.RemoveAll(x => x.Book.BookId == bo.BookId);
+        }
+
+
         public double CalculateTotal()
         {
             double sum = 0.0;
             foreach(var i in Items)
             {
-                sum += i.Book.Price;
+                sum += (i.Book.Price * i.Quantity);
             }
            
 
             return sum;
         }
 
-        
+        public virtual void ClearBasket()
+        {
+            Items.Clear();
+        }
+
     }
     public class BasketLineItem
     {
+        [Key]
         public int LineID { get; set; }
         public Book Book { get; set; }
         public int Quantity { get; set; }
