@@ -5,7 +5,8 @@
 <style>
     div.validation-message {
         color: rgb(220,53,69);
-        font-weight: 500
+        font-weight: bold;
+        /*I made the font style bold for error messages*/
     }
 </style>
 
@@ -41,7 +42,7 @@
     <div class="form-group">
         <label>ISBN:</label>
         <ValidationMessage For="@(() => p.Isbn)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="@p.Isbn"></InputNumber>
+        <InputText class="form-control" @bind-Value="@p.Isbn"></InputText>
     </div>
 
     <div class="form-group">
@@ -69,7 +70,7 @@
     </div>
 
     <button type="submit" class="btn btn-@ThemeColor">Save</button>
-    <a class="btn btn-secondary" href="/admin/projects">Cancel</a>
+    <a class="btn btn-secondary" href="/admin/books">Cancel</a>
 
 </EditForm>
 
@@ -105,7 +106,7 @@
         {
             repo.SaveBook(p);
         }
-
+        NavManager.NavigateTo("/admin/books");
     }
 
 
