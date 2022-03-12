@@ -74,6 +74,8 @@
 </EditForm>
 
 @code {
+    [Inject]
+    public NavigationManager NavManager { get; set; }
     [Parameter]
     public long Id { get; set; } = 0;
 
@@ -103,9 +105,8 @@
         {
             repo.SaveBook(p);
         }
-        NavManager.NavigateTo("/admin/books");
+
     }
-    [Inject]
-    public NavigationManager NavManager { get; set; }
+
 
 }
