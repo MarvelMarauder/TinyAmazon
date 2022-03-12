@@ -1,5 +1,6 @@
 ﻿@page "/admin/books"
 @page "/admin"
+
 @inherits OwningComponentBase<IBookstoreRepository>
 
 
@@ -31,7 +32,7 @@
                         <NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(p.BookId)">Edit</NavLink>
                     </td>
                     <td>
-                        <NavLink class="btn btn-danger btn-sm" @onclick="@(x => RemoveProject(p))">Delete</NavLink>
+                        <NavLink class="btn btn-danger btn-sm" @onclick="@(x => RemoveBook(p))">Delete</NavLink>
                     </td>
                 </tr>
             }
@@ -46,7 +47,7 @@
 
 </table>
 
-<NavLink class="btn btn-primary" href="/admin/projects/create">Create</NavLink>
+<NavLink class="btn btn-primary" href="/admin/books/create">Create</NavLink>
 
 @code {
     public IBookstoreRepository repo => Service;
@@ -63,7 +64,7 @@
         BookData = await repo.Books.ToListAsync();
     }
 
-    public async Task RemoveProject(Book p)
+    public async Task RemoveBook(Book p)
     {
         repo.DeleteBook(p);
         await UpdateData();

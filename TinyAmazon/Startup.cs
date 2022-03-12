@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -47,6 +48,7 @@ namespace TinyAmazon
 
             services.AddServerSideBlazor();
             services.AddServerSideBlazor().AddCircuitOptions(options => { options.DetailedErrors = true; });
+            services.Configure<RazorPagesOptions>(options => options.RootDirectory = "/Pages");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
