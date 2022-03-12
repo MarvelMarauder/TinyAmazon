@@ -13,8 +13,11 @@ namespace TinyAmazon.Models
         [Key]
         [Required]
         public long BookId { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Author { get; set; }
+        [Required]
         public string Publisher { get; set; }
         public string Isbn { get; set; }
         public string Classification { get; set; }
