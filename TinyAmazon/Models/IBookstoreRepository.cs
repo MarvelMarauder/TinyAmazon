@@ -8,5 +8,10 @@ namespace TinyAmazon.Models
     public interface IBookstoreRepository
     {
         IQueryable<Book> Books { get; }
+
+        public void SaveBook(Book p);
+        public void CreateBook(Book p);
+        public void DeleteBook(Book p);
+
     }
 }

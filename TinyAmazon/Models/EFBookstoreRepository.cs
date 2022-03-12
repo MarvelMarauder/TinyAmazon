@@ -14,5 +14,21 @@ namespace TinyAmazon.Models
         }
 
         public IQueryable<Book> Books => context.Books;
+
+        public void SaveBook(Book b)
+        {
+            context.SaveChanges();
+        }
+        public void CreateBook(Book p)
+        {
+            context.Add(p);
+            context.SaveChanges();
+        }
+
+        public void DeleteBook(Book p)
+        {
+            context.Remove(p);
+            context.SaveChanges();
+        }
     }
 }
