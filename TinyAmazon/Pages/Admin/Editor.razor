@@ -24,49 +24,49 @@
     <div class="form-group">
         <label>Title:</label>
         <ValidationMessage For="@(() => p.Title)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="@p.Title"></InputText>
+        <InputText class="form-control" @bind-Value="@p.Title" placeholder="Book Title"></InputText>
     </div>
 
     <div class="form-group">
         <label>Author:</label>
         <ValidationMessage For="@(() => p.Author)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="@p.Author"></InputText>
+        <InputText class="form-control" @bind-Value="@p.Author" placeholder="John Doe"></InputText>
     </div>
 
     <div class="form-group">
         <label>Publisher:</label>
         <ValidationMessage For="@(() => p.Publisher)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="@p.Publisher"></InputText>
+        <InputText class="form-control" @bind-Value="@p.Publisher" placeholder="Publisher Inc"></InputText>
     </div>
 
     <div class="form-group">
         <label>ISBN:</label>
         <ValidationMessage For="@(() => p.Isbn)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="@p.Isbn"></InputText>
+        <InputText class="form-control" @bind-Value="@p.Isbn" placeholder="0000-0000-0000"></InputText>
     </div>
 
     <div class="form-group">
         <label>Classification:</label>
         <ValidationMessage For="@(() => p.Classification)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="@p.Classification"></InputText>
+        <InputText class="form-control" @bind-Value="@p.Classification" placeholder="Fiction"></InputText>
     </div>
 
     <div class="form-group">
         <label>Category:</label>
         <ValidationMessage For="@(() => p.Category)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="@p.Category"></InputText>
+        <InputText class="form-control" @bind-Value="@p.Category" placeholder="Fantasy"></InputText>
     </div>
 
     <div class="form-group">
         <label>Page Count:</label>
         <ValidationMessage For="@(() => p.PageCount)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="@p.PageCount"></InputNumber>
+        <InputNumber class="form-control" @bind-Value="@p.PageCount" placeholder="100"></InputNumber>
     </div>
 
     <div class="form-group">
         <label>Price:</label>
         <ValidationMessage For="@(() => p.Price)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="@p.Price"></InputNumber>
+        <InputNumber class="form-control" @bind-Value="@p.Price" placeholder="3.00"></InputNumber>
     </div>
 
     <button type="submit" class="btn btn-@ThemeColor">Save</button>
